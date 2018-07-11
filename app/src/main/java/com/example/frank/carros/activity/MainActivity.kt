@@ -1,5 +1,7 @@
 package com.example.frank.carros.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -8,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.example.frank.carros.R
+import com.example.frank.carros.domain.TipoCarro
 import com.example.frank.carros.extensions.setupToolbar
 import com.example.frank.carros.extensions.toast
 
@@ -39,13 +42,19 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 toast("Clicou em Carros")
             }
             R.id.nav_item_carros_classicos -> {
-                toast("Clicou em Carros Clássicos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.classico)
+                startActivity(intent)
             }
             R.id.nav_item_carros_esportivos -> {
-                toast("Clicou em Carros Esportivos")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.esportivo)
+                startActivity(intent)
             }
             R.id.nav_item_carros_luxo -> {
-                toast("Clicou em Carros de Luxo")
+                val intent = Intent(context, CarrosActivity::class.java)
+                intent.putExtra("tipo", TipoCarro.luxo)
+                startActivity(intent)
             }
             R.id.nav_item_site_livro -> {
                 toast("Clicou em Github")

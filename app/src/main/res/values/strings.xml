@@ -39,6 +39,7 @@ Versao %s<br><br>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="luxo">Luxo</string>
+    <string name="lista_de_carros">Lista de Carros aqui...</string>
 
     <!-- M -->
     <string name="mapa">Mapa</string>
@@ -79,5 +80,6 @@ Versao %s<br><br>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
