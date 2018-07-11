@@ -19,12 +19,6 @@ fun AppCompatActivity.onClick(@IdRes viewId: Int, onClick: (v: android.view.View
     view.setOnClickListener { onClick(it) }
 }
 
-//mostra um toast
-fun Activity.toast(message: CharSequence, length: Int = Toast.LENGTH_SHORT) =
-        Toast.makeText(this, message, length).show()
-
-fun Activity.toast(@StringRes message: Int, length: Int = Toast.LENGTH_SHORT) =
-        Toast.makeText(this, message, length).show()
 //configura a toolbar
 fun AppCompatActivity.setupToolbar(@IdRes id: Int, title: String? =  null,
                                    upNavigation: Boolean  = false): ActionBar{

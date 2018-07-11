@@ -1,7 +1,5 @@
 package com.example.frank.carros.activity
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -12,7 +10,8 @@ import android.view.MenuItem
 import com.example.frank.carros.R
 import com.example.frank.carros.domain.TipoCarro
 import com.example.frank.carros.extensions.setupToolbar
-import com.example.frank.carros.extensions.toast
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,19 +41,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
                 toast("Clicou em Carros")
             }
             R.id.nav_item_carros_classicos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.classico)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.classico)
             }
             R.id.nav_item_carros_esportivos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.esportivo)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.esportivo)
             }
             R.id.nav_item_carros_luxo -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.luxo)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.luxo)
             }
             R.id.nav_item_site_livro -> {
                 toast("Clicou em Github")
