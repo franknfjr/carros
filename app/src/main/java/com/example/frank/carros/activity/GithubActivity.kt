@@ -2,6 +2,7 @@ package com.example.frank.carros.activity
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -14,6 +15,7 @@ class GithubActivity : BaseActivity() {
     private val URL = "https://github.com/franknfjr/carros"
     var webview: WebView? = null
     var progress: ProgressBar? = null
+    var swipeToRefresh: SwipeRefreshLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +32,23 @@ class GithubActivity : BaseActivity() {
         // Carrega a página
         setWebViewClient(webview)
         webview?.loadUrl(URL)
+
+        //Swipe to Refresh
+        swipeToRefresh = findViewById<SwipeRefreshLayout>(R.id.swipeToRefresh)
+        swipeToRefresh?.setOnRefreshListener {
+            webview?.reload()
+        }
+
+        // Cores da animação
+        swipeToRefresh?.setColorSchemeResources(
+                R.color.refresh_progress_1,
+                R.color.refresh_progress_2,
+                R.color.refresh_progress_3
+        )
     }
 
     // Controla os eventos do webView
-    private fun setWebViewClient(webview: WebView?){
+    private fun setWebViewClient(webview: WebView?) {
         webview?.webViewClient = object : WebViewClient() {
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
@@ -45,6 +60,9 @@ class GithubActivity : BaseActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 // Desliga o progress
                 progress?.visibility = View.INVISIBLE
+
+                // Termina a animação do Swipe to Refresh
+                swipeToRefresh?.isRefreshing = false
             }
         }
     }
