@@ -38,3 +38,10 @@ fun AppCompatActivity.addFragment(@IdRes layoutId: Int, fragment: Fragment){
     ft.add(layoutId, fragment)
     ft.commit()
 }
+
+// Mostra um toast
+fun Fragment.toast(message: CharSequence, length: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, length).show()
+
+fun Fragment.toast(@StringRes message: Int, length: Int = Toast.LENGTH_SHORT) =
+        Toast.makeText(activity, message, length).show()

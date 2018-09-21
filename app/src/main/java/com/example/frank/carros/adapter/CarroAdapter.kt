@@ -9,11 +9,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.example.frank.carros.R
-import com.example.frank.carros.R.id.progress
 import com.example.frank.carros.domain.Carro
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.adapter_carro.view.*
-import org.jetbrains.anko.find
 
 // Define o construtor que recebe (carros, onclick)
 class CarroAdapter(
